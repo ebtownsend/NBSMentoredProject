@@ -3,11 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <title>HR Management</title>
 </head>
 <body>
+
+    <container class="records_cont">
+        <h1>Employee Management</h1>
+        <table class="table" id="table">
+            <tr>
+              <th>NI Number</th>
+              <th>Employee Name</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Department</th>
+              <th>Actions</th>
+            </tr>
+          </table>
+    </container>
+
+    <container class="form_cont">
+        <h1>Add Employee</h1>
+        <form id="form" onsubmit="event.preventDefault();">
+            <label for="ninumber" id="ninumber">NI Number:</label>
+            <input type="text" name="ninumber" onkeypress="clearError('ninumber');">
+
+            <label for="fullname" id="fullname">Full Name:</label>
+            <input type="text" name="fullname" onkeypress="clearError('fullname');">
+
+            <label for="phoneNum" id="phoneNum">Phone Number:</label>
+            <input type="text" name="phoneNum" onkeypress="clearError('phoneNum');">
+
+            <label for="address" id="address">Address:</label>
+            <input type="text" name="address" onkeypress="clearError('address');">
+
+            <label for="department" id="department">Department:</label>
+            <input type="text" name="department" onkeypress="clearError('department');">
+
+            <button onclick="addRec();">Add</button>
+        </form>
+    </container>
     
 </body>
-    <script src="/js/Records.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="js/Records.js"></script>
+    <script src="js/main.js"></script>
 </html>

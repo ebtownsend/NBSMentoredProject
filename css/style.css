@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+}
+
+h1, th {
+    font-family: 'Poppins';
+}
+
+td, form {
+    font-family: 'Avenir';
+}
+
+.records_cont {
+    overflow-x: auto;
+    text-align: center;
+    padding: 2%;
+}
+
+.table {
+    text-align: left;
+
+    padding: 2%;
+    margin: 0 auto;
+    width: 75%;
+
+    border-collapse: collapse;
+}
+
+.table th, td {
+    padding: 15px;
+}
+
+.table th {
+    background-color: #52b788;
+    color: white;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+.form_cont {
+    padding: 2%;
+}
+
+form, h1 {
+    text-align: left;
+
+    padding: 1%;
+    margin: 0 auto;
+    width: 75%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form label {
+    margin: 8px 20%;
+}
+
+form input {
+    padding: 0 20px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    border: none;
+    font-family: 'Avenir';
+    font-size: 14px;
+}
+
+form button {
+    padding: 0 50px;
+    margin: 10px 42%;
+
+	height: 60px;
+	border-radius: 15px;
+	border: none;
+
+	color: #fff;
+
+	transition: 0.3s ease;
+
+	font-family: "Poppins";
+	font-size: 18px;
+}
+
+.error {
+    color: red;
+}
