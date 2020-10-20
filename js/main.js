@@ -72,18 +72,6 @@ function displayFilteredData(filter) {
     }
 }
 
-// TO DO
-function editRec(number) {
-    // show form, populate form with current data, on submit, update current data?
-    console.log("edit!" + number);
-}
-
-// TO DO
-function deleteRec(number) {
-    // go throgh the array, delete the one with matching number?
-    console.log("delete!" + number);
-}
-
 // If there is an error message on the input, remove it when something is typed into the input
 function clearError(name){
     let current = document.getElementById(name);
@@ -169,7 +157,6 @@ function addRec(){
     }
 }
 
-
 function toggleVisibility() {
     var form = document.getElementById('form_cont');
     if (form.style.display === 'none') {
@@ -184,6 +171,31 @@ function filter() {
     if(filterInput.value != "0") {
         var filter = filterInput.value;
         displayFilteredData(filter);
+    }
+}
+
+// TO DO
+function editRec(number) {
+    // show form, populate form with current data, on submit, update current data?
+    console.log("edit!");
+    var result = records.find(obj => {
+        return obj.ninumber === number
+      });
+    console.log(result);
+}
+
+function deleteRec(number) {
+    // go throgh the array, delete the one with matching number?
+    console.log("delete!");
+    var result = records.find(obj => {
+        return obj.ninumber === number
+      });
+
+    let message = "Are you sure you want to delete the entry for " + result.fullname + "?";
+
+    if(confirm(message)) {
+        // TO DO - remove entry in array
+        console.log("GONE!");
     }
 }
 

@@ -11,7 +11,6 @@ td, form {
 }
 
 .records_cont {
-    overflow-x: auto;
     text-align: center;
     padding: 2%;
 }
