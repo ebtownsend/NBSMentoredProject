@@ -76,7 +76,7 @@ form input {
 
 form button {
     padding: 0 50px;
-    margin: 10px 42%;
+    margin: 10px 15%;
 
 	height: 60px;
 	border-radius: 15px;
@@ -92,4 +92,7 @@ form button {
 
 .error {
     color: red;
+}
+
+.header_btn {
 }

@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
     <title>HR Management</title>
 </head>
 <body>
 
-    <container class="records_cont">
-        <h1>Employee Management</h1>
-        <table class="table" id="table">
-            <tr>
-              <th>NI Number</th>
-              <th>Employee Name</th>
-              <th>Phone Number</th>
-              <th>Address</th>
-              <th>Department</th>
-              <th>Actions</th>
-            </tr>
-          </table>
-    </container>
+    <h1>Employee Management</h1>
+    <button class="header_btn" onclick="toggleVisibility();">Add New Employee</button>
+    <select name="filter" id="filter">
+        <option value="0" selected disabled hidden>Department</option>
+        <option value="All">All</option>
+        <option value="IT">IT</option>
+        <option value="Sales">Sales</option>
+        <option value="HR">HR</option>
+    </select>
+    <button class="header_btn" onclick="filter();">Filter By Department</button>
 
-    <container class="form_cont">
+    <container class="form_cont" id="form_cont" style="display: none;">
         <h1>Add Employee</h1>
         <form id="form" onsubmit="event.preventDefault();">
             <label for="ninumber" id="ninumber">NI Number:</label>
@@ -32,8 +29,8 @@
             <label for="fullname" id="fullname">Full Name:</label>
             <input type="text" name="fullname" onkeypress="clearError('fullname');">
 
-            <label for="phoneNum" id="phoneNum">Phone Number:</label>
-            <input type="text" name="phoneNum" onkeypress="clearError('phoneNum');">
+            <label for="phoneNum" id="phone">Phone Number:</label>
+            <input type="text" name="phone" onkeypress="clearError('phone');">
 
             <label for="address" id="address">Address:</label>
             <input type="text" name="address" onkeypress="clearError('address');">
@@ -43,6 +40,22 @@
 
             <button onclick="addRec();">Add</button>
         </form>
+    </container>
+
+    <container class="records_cont">
+        <table class="table" id="table">
+            <thead>
+              <th>NI Number</th>
+              <th>Employee Name</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Department</th>
+              <th>Actions</th>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+          </table>
     </container>
     
 </body>
