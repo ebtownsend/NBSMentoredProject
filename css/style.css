@@ -44,14 +44,15 @@ tr:hover {
 
 .form_cont {
     padding: 2%;
+    margin: 0 auto;
+    width: 75%;
 }
 
-form, h1 {
+form {
     text-align: left;
 
     padding: 1%;
-    margin: 0 auto;
-    width: 75%;
+    width: 40%;
 }
 
 form {
@@ -60,7 +61,7 @@ form {
 }
 
 form input, form label {
-    margin: 8px 20%;
+    margin: 8px 0;
 }
 
 form input {
@@ -73,25 +74,54 @@ form input {
     font-size: 14px;
 }
 
-form button {
-    padding: 0 50px;
-    margin: 10px 15%;
+button, select {
+    color: #fff;
 
-	height: 60px;
-	border-radius: 15px;
-	border: none;
+    padding: 0 40px;
+    height: 55px;
 
-	color: #fff;
-
-	transition: 0.3s ease;
-
-	font-family: "Poppins";
+    border-radius: 15px;
+    border: none;
+    
+    font-family: "Poppins";
 	font-size: 18px;
+}
+
+form button { 
+    margin: 10px 0;
 }
 
 .error {
     color: red;
 }
 
+.header {
+    margin: 0 auto;
+    width: 75%;
+}
+
+select {
+    color: #000;
+    width: 20%;
+}
+
 .header_btn {
+    background-color: #52b788;
+    color: #fff;
+
+    margin: 10px;
+}
+
+.edit_btn {
+    background-color: #52b788;
+    color: #fff;
+
+    margin: 5px;
+}
+
+.delete_btn {
+    background-color: grey;
+    color: #fff;
+
+    margin: 5px;
 }

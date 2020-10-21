@@ -23,6 +23,7 @@ function display(item) {
 
     let editBtn = document.createElement('button');
     editBtn.type = 'button';
+    editBtn.className = 'edit_btn';
     editBtn.innerHTML = 'Edit';
     editBtn.onclick = function() {
         editRec(item.ninumber);
@@ -30,6 +31,7 @@ function display(item) {
 
     let deleteBtn = document.createElement('button');
     deleteBtn.type = 'button';
+    deleteBtn.className = 'delete_btn';
     deleteBtn.innerHTML = 'Delete';
     deleteBtn.onclick = function() {
         deleteRec(item.ninumber);
@@ -157,15 +159,23 @@ function addRec(){
     }
 }
 
-function toggleVisibility() {
+// Hides / displays form, alters title & button text depending on desired action
+function toggleVisibility(action) {
+    document.getElementById('form').reset();
     var form = document.getElementById('form_cont');
+    var title = document.getElementById('form_title');
+    var button = document.getElementById('action');
+
     if (form.style.display === 'none') {
       form.style.display = 'block';
+      title.innerText = action + " Employee";
+      button.innerText = action;
     } else {
       form.style.display = 'none';
     }
 }
 
+// filter data based on department
 function filter() {
     let filterInput = document.getElementById('filter');
     if(filterInput.value != "0") {
@@ -176,16 +186,23 @@ function filter() {
 
 // TO DO
 function editRec(number) {
-    // show form, populate form with current data, on submit, update current data?
     console.log("edit!");
     var result = records.find(obj => {
         return obj.ninumber === number
       });
-    console.log(result);
+
+    toggleVisibility("Edit");
+    var form = document.getElementById('form');
+
+    for(let i = 0; i < inputs.length; i++) {
+        let element = form.elements.namedItem(inputs[i]);
+        element.value = result[inputs[i]];
+    }
+    
 }
 
+// deletes selected record and removes from visible
 function deleteRec(number) {
-    // go throgh the array, delete the one with matching number?
     console.log("delete!");
     var result = records.find(obj => {
         return obj.ninumber === number
@@ -194,8 +211,12 @@ function deleteRec(number) {
     let message = "Are you sure you want to delete the entry for " + result.fullname + "?";
 
     if(confirm(message)) {
-        // TO DO - remove entry in array
-        console.log("GONE!");
+        for (var i = 0; i < records.length; i++) {
+            if (records[i].ninumber == result.ninumber) {
+                records.splice(i, 1);
+            }
+        }
+        displayData();
     }
 }
 

@@ -8,20 +8,21 @@
     <title>HR Management</title>
 </head>
 <body>
-
-    <h1>Employee Management</h1>
-    <button class="header_btn" onclick="toggleVisibility();">Add New Employee</button>
-    <select name="filter" id="filter">
-        <option value="0" selected disabled hidden>Department</option>
-        <option value="All">All</option>
-        <option value="IT">IT</option>
-        <option value="Sales">Sales</option>
-        <option value="HR">HR</option>
-    </select>
-    <button class="header_btn" onclick="filter();">Filter By Department</button>
+    <section class="header">
+        <h1>Employee Management</h1>
+        <button class="header_btn" onclick="toggleVisibility('Add');">Add New Employee</button>
+        <select name="filter" id="filter">
+            <option value="0" selected disabled hidden>Department</option>
+            <option value="All">All</option>
+            <option value="IT">IT</option>
+            <option value="Sales">Sales</option>
+            <option value="HR">HR</option>
+        </select>
+        <button class="header_btn" onclick="filter();">Filter By Department</button>
+    </section>
 
     <container class="form_cont" id="form_cont" style="display: none;">
-        <h1>Add Employee</h1>
+        <h1 id="form_title">Add Employee</h1>
         <form id="form" onsubmit="event.preventDefault();">
             <label for="ninumber" id="ninumber">NI Number:</label>
             <input type="text" name="ninumber" onkeypress="clearError('ninumber');">
@@ -38,7 +39,7 @@
             <label for="department" id="department">Department:</label>
             <input type="text" name="department" onkeypress="clearError('department');">
 
-            <button onclick="addRec();">Add</button>
+            <button id="action" onclick="addRec();">Add</button>
         </form>
     </container>
 
