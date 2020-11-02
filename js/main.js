@@ -150,9 +150,20 @@ function addRec(){
     if(addedValues.length == 5) {
         // Turn the added values into an object and push it into the record.
         var result = {};
-        inputs.forEach((key, i) => result[key] = addedValues[i]);
-        records.push(result);
-        // TO DO - Write new array to file? How to preserve newly added data?
+        result = Object.assign(...inputs.map((k, i) => ({[k]: addedValues[i]})));
+
+        let edit = false;
+
+        for(let x = 0; x < records.length; x++) {
+            if (result.ninumber == records[x].ninumber) {
+                edit = true;
+                records[x] = result;
+            }
+        }
+
+        if(edit == false) {
+            records.push(result);
+        }
 
         document.getElementById('form').reset();
         displayData();
@@ -184,9 +195,8 @@ function filter() {
     }
 }
 
-// TO DO
+// edits existing entry
 function editRec(number) {
-    console.log("edit!");
     var result = records.find(obj => {
         return obj.ninumber === number
       });
@@ -198,12 +208,10 @@ function editRec(number) {
         let element = form.elements.namedItem(inputs[i]);
         element.value = result[inputs[i]];
     }
-    
 }
 
 // deletes selected record and removes from visible
 function deleteRec(number) {
-    console.log("delete!");
     var result = records.find(obj => {
         return obj.ninumber === number
       });
